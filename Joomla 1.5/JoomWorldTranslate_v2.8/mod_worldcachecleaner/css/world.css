@@ -1,0 +1,50 @@
+/**
+ * Cache Cleaner stylesheet
+ *
+ * @package    Cache Cleaner
+ * @version    0.1.0
+ * @since      File available since Release v0.1.0
+ *
+ * @author     Peter van Westen <peter@nonumber.nl>
+ * @link       http://www.nonumber.nl/cachecleaner
+ * @copyright  Copyright (C) 2009 NoNumber! All Rights Reserved
+ * @license    http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+ */
+
+#module-status .joom_world_translate {
+	background: transparent url(../images/icon.png) no-repeat 3px 3px;
+}
+#module-status .cachecleaner_no-icon {
+	padding-left: 0px;
+}
+#module-status .cachecleaner_no-icon-pro {
+    padding-left: 0px;
+}
+#cachecleaner_msg,
+#cachecleaner_msg.visible {
+	display: none;
+}
+body>#cachecleaner_msg {
+	position: fixed;
+	top: 0;
+	right: 0;
+	padding: 5px 20px;
+	width: 100%;
+	height: 16px;
+	text-align: center;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #666666;
+}
+body>#cachecleaner_msg.visible {
+	display: inline;
+}
+body>#cachecleaner_msg.success {
+	background-color: #4e8858;
+}
+body>#cachecleaner_msg.failure {
+	background-color: #884e4e;
+}
+body>#cachecleaner_msg img {
+	vertical-align: sub;
+}

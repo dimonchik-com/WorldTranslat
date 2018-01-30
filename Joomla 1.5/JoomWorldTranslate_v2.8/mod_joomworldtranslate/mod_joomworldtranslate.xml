@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0" client="site" method="upgrade">
+    <name>Language Selection Pro</name>
+    <license>Open Source License, GPL v2 based</license>
+    <author>Dima Kuprijanov</author>
+    <authorEmail>ageent.ua@gmail.com</authorEmail>
+    <authorUrl>http://www.ageent.ru</authorUrl>
+    <creationDate>2010-03-18</creationDate>
+    <version>2.0.0</version>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <files>
+        <filename module="mod_jflanguageselectionpro">mod_joomworldtranslate.php</filename>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+        <folder>tmpl</folder>
+    </files>
+
+    <media />
+    <params>
+        <param name="type" type="list" default="fallindown" label="Appearance of language selector" description="Define how the selector should be generated.">
+            <option value="fallindown">Falling down</option>
+            <option value="blackbar">Black bar</option>
+            <option value="justable">Just table</option>
+        </param>
+        
+        <param name="fallindow_two" type="list" default="click" label="Click or Move mouse?" description="">
+            <option value="click">Click</option>
+            <option value="move_mouse">Move mouse</option>
+        </param>
+        
+        <param name="effect" type="list" default="slideDown" label="Effect of opening" description="">
+            <option value="slideDown">Slide Down</option>
+            <option value="fadeIn">FadeInse</option>
+        </param>
+        
+        <param name="show_active" type="radio" default="1"
+            label="Show active language" description="Select wether the active language should be shown or not">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </param>
+        
+        <param name="include_jquery" type="radio" default="1" label="Include Jquery?">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </param>
+        
+        <param name="translator" type="text" size="34" default="Translator" label="Word translation"/>
+    </params>
+    <params group="advanced">
+        <param name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+        <param name="cache_href" type="radio" default="1" label="Cache href translation" description="Select whether to cache the result of the routing of the translated URL">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </param>
+    </params>
+</install>

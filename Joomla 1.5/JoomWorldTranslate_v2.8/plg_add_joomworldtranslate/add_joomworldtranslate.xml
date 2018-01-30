@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="editors-xtd">
+	<name>Editor Button - Addjoomworldtranslate</name>
+    <license>Open Source License, GPL v2 based</license>
+    <author>Dima Kuprijanov</author>
+    <authorEmail>ageent.ua@gmail.com</authorEmail>
+    <authorUrl>http://www.ageent.ru</authorUrl>
+    <creationDate>2010-03-18</creationDate>
+    <version>2.0.0</version>
+	<files>
+		<filename plugin="add_joomworldtranslate">add_joomworldtranslate.php</filename>
+		<filename>add_joomworldtranslate.png</filename>
+		<filename>add_joomworldtranslate.css</filename>
+	</files>
+</install>

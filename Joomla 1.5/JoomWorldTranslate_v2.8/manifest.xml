@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<install type="component" version="1.5.0" method="upgrade">
+	<name>Joom World Translate</name>
+    <author>World Translate Project</author>
+    <authorEmail>sitetranslate@gmail.com</authorEmail>
+    <authorUrl>http://sitetranslation.org</authorUrl>
+    <creationDate>2010-03-18</creationDate>
+	<version>2.7.0</version>
+	<installfile>install/install.php</installfile>
+	<uninstallfile>install/uninstall.php</uninstallfile>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">install/install.mysql.utf8.sql</file>
+			<file driver="mysql">install/install.mysql.sql</file>
+		</sql>
+	</install>
+
+    <files folder="site">
+		<folder>views</folder>
+		<filename>controller.php</filename>
+		<filename>joomworldtranslate.php</filename>
+        <filename>index.html</filename>
+    </files>
+
+	<media />
+
+	<administration>
+		<menu img="components/com_joomworldtranslate/views/joomworldtranslate/tmpl/icon-16-fish.png">Joom World Translate</menu>
+
+        <files folder="admin">
+            <folder>install</folder>
+            <folder>controllers</folder>
+            <folder>models</folder>
+            <folder>views</folder>
+            <file>controller.php</file>
+            <file>joomworldtranslate.php</file>
+            <file>index.html</file>
+        </files>
+
+ 	</administration>
+
+	<params />
+
+	<modules>        
+        <module module="mod_worldcachecleaner" title="World Cache Cleaner" order="101" position="status" client="administrator">
+            <files folder="mod_worldcachecleaner">
+                <folder>images</folder>
+                <folder>css</folder>
+                <file>mod_worldcachecleaner.php</file>
+                <file>mod_worldcachecleaner.xml</file>
+                <file>index.html</file>
+            </files>
+            <media />
+        </module>
+        
+        <module module="mod_joomworldtranslate" title="Joom World Translate" position="left" order="-1" client="site">
+            <files folder="mod_joomworldtranslate">
+                <folder>tmpl</folder>
+                <file>helper.php</file>
+                <file>index.html</file>
+                <file>mod_joomworldtranslate.php</file>
+                <file>mod_joomworldtranslate.xml</file>
+            </files>
+            <media />
+        </module>
+        
+	</modules>
+	
+	<plugins>
+
+        <plugin plugin="joomworldtranslateplg" order="-1001" group="system">
+            <files folder="plg_joomworldtranslateplg">
+                <folder>worldtranslate</folder>
+                <file>joomworldtranslateplg.php</file>
+                <file>joomworldtranslateplg.xml</file>
+            </files>
+
+            <media />
+        </plugin>
+        
+        <plugin plugin="add_joomworldtranslate" order="-1001" group="editors-xtd">
+            <files folder="plg_add_joomworldtranslate">
+                <file>add_joomworldtranslate.php</file>
+                <file>add_joomworldtranslate.png</file>
+                <file>add_joomworldtranslate.css</file>
+                <file>add_joomworldtranslate.xml</file>
+            </files>
+
+            <media />
+        </plugin>
+        
+        <plugin plugin="joomworldtranslatedetectedsource" order="-1000" group="editors-xtd">
+            <files folder="plg_joomworldtranslatedetectedsource">
+                <file>joomworldtranslatedetectedsource.php</file>
+                <file>joomworldtranslatedetectedsource.xml</file>
+            </files>
+
+            <media />
+        </plugin>
+        
+        <plugin plugin="clearjoomworldtranslate"  group="content">
+            <files folder="plg_clearjoomworldtranslate">
+                <file>clearjoomworldtranslate.php</file>
+                <file>clearjoomworldtranslate.xml</file>
+            </files>
+
+            <media />
+        </plugin>
+        
+	</plugins>
+
+</install>

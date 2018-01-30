@@ -1,0 +1,397 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta name="description" content="PHP Simple HTML DOM Parser CSS Selector">
+<meta name="keywords" content="PHP Simple HTML DOM Parser CSS Selector">
+
+<style type="text/css">
+.code {
+font-size: 11px;
+font-family: Monaco, Verdana, Sans-serif;
+line-height: 14px;
+background-color: #f6f6f6;
+border-bottom: 1px solid #D0D0D0;
+border-top: 1px solid #A0A0A0;
+border-left: 1px solid #A0A0A0;
+border-right: 1px solid #D0D0D0;
+color: #002166;
+display: block;
+margin: 2px 0 2px 0;
+padding: 2px 10px 2px 10px;
+}
+.code A:link {color: #002166; text-decoration: none; font-weight: bold;}
+.code A:visited {color: #002166; text-decoration: none; font-weight: bold;}
+.code A:active {color: #002166; text-decoration: none; font-weight: bold;}
+.code A:hover {color: #0000ff; text-decoration: underline; font-weight: bold;}
+.code .keyword {
+color: #007700;
+}
+.code .comment {
+font-size: 10px;
+color: #888;
+}
+.code .var {
+color: #770000;
+}
+th {
+font-family: Lucida Grande, Verdana, Geneva, Sans-serif;
+color: #000000;
+background-color: #CFD4E6;
+margin: 2px 2px 2px 2px;
+padding: 2px 2px 2px 2px;
+font-size: 13px;
+font-weight: normal;
+font-style: normal;
+}
+.description {
+font-family: Lucida Grande, Verdana, Geneva, Sans-serif;
+font-size: 11px;
+color: #333;
+text-ident: 30px;
+font-style: normal;
+}
+.returns {
+font-family: Monaco, Verdana, Sans-serif;
+font-size: 10px;
+color: #888;
+float: left;
+text-align: right;
+margin: 0 4px 0 0;
+width: 48px;
+}
+</style>
+
+<style type="text/css">
+@media projection, screen {
+    .ui-tabs-hide {
+        display: none;
+    }
+}
+.ui-tabs-nav, .ui-tabs-panel {
+    font-family: "Trebuchet MS", Trebuchet, Verdana, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+.ui-tabs-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 4px;
+}
+.ui-tabs-nav:after {
+    display: block;
+    clear: both;
+    content: " ";
+}
+.ui-tabs-nav li {
+    float: left;
+    margin: 0 0 0 1px;
+    min-width: 84px; /* be nice to Opera */
+}
+.ui-tabs-nav a, .ui-tabs-nav a span {
+    display: block;
+    padding: 0 10px;
+    background: url(http://simplehtmldom.sourceforge.net/img/tab.png) no-repeat;
+}
+.ui-tabs-nav a {
+    margin: 1px 0 0;
+    padding-left: 0;
+    color: #27537a;
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap; /* required in IE 6 */    
+    outline: 0; /* prevent dotted border in Firefox */
+}
+.ui-tabs-nav .ui-tabs-selected a {
+    position: relative;
+    top: 1px;
+    z-index: 2;
+    margin-top: 0;
+    color: #000;
+}
+.ui-tabs-nav a span {
+    width: 64px;
+    min-width: 64px;
+    height: 18px;
+    min-height: 18px;
+    padding-top: 6px;
+    padding-right: 0;
+}
+*>.ui-tabs-nav a span {
+    width: auto;
+    height: auto;
+}
+.ui-tabs-nav .ui-tabs-selected a span {
+    padding-bottom: 1px;
+}
+.ui-tabs-nav .ui-tabs-selected a, .ui-tabs-nav a:hover, .ui-tabs-nav a:focus, .ui-tabs-nav a:active {
+    background-position: 100% -150px;
+}
+.ui-tabs-nav a, .ui-tabs-nav .ui-tabs-disabled a:hover, .ui-tabs-nav .ui-tabs-disabled a:focus, .ui-tabs-nav .ui-tabs-disabled a:active {
+    background-position: 100% -100px;
+}
+.ui-tabs-nav .ui-tabs-selected a span, .ui-tabs-nav a:hover span, .ui-tabs-nav a:focus span, .ui-tabs-nav a:active span {
+    background-position: 0 -50px;
+}
+.ui-tabs-nav a span, .ui-tabs-nav .ui-tabs-disabled a:hover span, .ui-tabs-nav .ui-tabs-disabled a:focus span, .ui-tabs-nav .ui-tabs-disabled a:active span {
+    background-position: 0 0;
+}
+.ui-tabs-nav .ui-tabs-selected a:link, .ui-tabs-nav .ui-tabs-selected a:visited, .ui-tabs-nav .ui-tabs-disabled a:link, .ui-tabs-nav .ui-tabs-disabled a:visited {
+ cursor: text;
+}
+.ui-tabs-nav a:hover, .ui-tabs-nav a:focus, .ui-tabs-nav a:active,
+.ui-tabs-nav .ui-tabs-unselect a:hover, .ui-tabs-nav .ui-tabs-unselect a:focus, .ui-tabs-nav .ui-tabs-unselect a:active {
+    cursor: pointer;
+}
+.ui-tabs-disabled {
+    opacity: .4;
+    filter: alpha(opacity=40);
+}
+.ui-tabs-panel {
+    border-top: 1px solid #97a5b0;
+    padding: 2px 4px 2px 4px;
+    background: #fff;
+    border: 1px solid #D0D0D0;
+    border-bottom: 1px solid #A0A0A0;
+    border-right: 1px solid #A0A0A0;
+}
+.ui-tabs-loading em {
+    padding: 0 0 0 20px;
+    background: url(loading.gif) no-repeat 0 50%;
+}
+* html .ui-tabs-nav { 
+    display: inline-block;
+}
+*:first-child+html .ui-tabs-nav  {
+    display: inline-block;
+}
+</style>
+<script src="http://simplehtmldom.sourceforge.net/js/jquery-1.2.3.pack.js"></script>
+<script src="http://simplehtmldom.sourceforge.net/js/ui.tabs.pack.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/JavaScript">
+    $(document).ready(function(){
+        $(function() {$('#container_create > ul').tabs();});
+        $(function() {$('#container_find > ul').tabs();});
+        $(function() {$('#container_access > ul').tabs();});
+        $(function() {$('#container_traverse > ul').tabs();});
+        $(function() {$('#container_dump > ul').tabs();});
+    });
+</script>
+</head>
+<body>
+
+
+  <div id="container_find">
+    <ul>
+      <li><a href="#frag_find_basic"><span>Basics</span></a></li>
+      <li><a href="#frag_find_advanced"><span>Integration with CMS</span></a></li>
+      <li><a href="#frag_find_chain"><span>Parameters</span></a></li>
+      <li><a href="#frag_find_nested"><span>The method for translating</span></a></li>
+      <li><a href="#frag_find_attr"><span>Attribute Filters</span></a></li>
+      <li><a href="#frag_find_textcomment"><span>Text &amp; Comments</span></a></li>
+    </ul>
+    <div id="frag_find_basic">
+      <div class="code"> 
+<div class="rj_insertcode">
+<div class="rj_insertcode_php">
+<div class="php" style="border-collapse: collapse; width: 100%; background: none repeat scroll 0% 0% #f9f9f9;">
+<pre style="margin: 0pt; background: none repeat scroll 0% 0% transparent; vertical-align: top; padding: 5px 4px; font-size: 12px; line-height: 16px;"><span style="vertical-align: top;"><span style="color: #666666; font-style: italic;">// Connect files to work with API World Translate</span></span>
+<span style="vertical-align: top;"><span style="color: #b1b100;">include</span><span style="color: #009900;">(</span><span style="color: #0000ff;">"worldtranslate/worldtranslate.php"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;"><span style="color: #b1b100;">include</span><span style="color: #009900;">(</span><span style="color: #0000ff;">"worldtranslate/worldmenu/world-menu-lenguages.php"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #666666; font-style: italic;">// Initialize the class to work with the script World </span></span>
+<span style="vertical-align: top;"><span style="color: #000088;">$world_translate</span> <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> WorldTranslate<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #666666; font-style: italic;">// Initialize method for the translation</span></span>
+<span style="vertical-align: top;"><span style="color: #000088;">$html</span> <span style="color: #339933;">=</span> <span style="color: #000088;">$world_translate</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">get_world_translate</span><span style="color: #009900;">(</span><span style="color: #000088;">$html</span><span style="color: #339933;">,</span><span style="color: #0000ff;">"en_to_de"</span><span style="color: #339933;">,</span><span style="color: #0000ff;">"en"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><a target="_blank" href="http://www.php.net/echo"><span style="color: #990000;">echo</span></a> <span style="color: #000088;">$html</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">// output html in German</span></span></pre>
+</div>
+</div>
+</div>      
+        </div>
+    </div>
+<div id="frag_find_advanced">
+<div class="code">
+<div class="rj_insertcode">
+<div class="rj_insertcode_php">
+<div class="php" style="border-collapse: collapse; width: 100%; background: none repeat scroll 0% 0% #f9f9f9;">
+<pre style="margin: 0pt; background: none repeat scroll 0% 0% transparent; vertical-align: top; padding: 5px 4px; font-size: 12px; line-height: 16px;"><span style="vertical-align: top;"><span style="color: #666666; font-style: italic;">// Example of the integration of the script World Translate in framework Yii</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #666666; font-style: italic;">// Connect files to work with API World Translate</span></span>
+<span style="vertical-align: top;"><span style="color: #b1b100;">include</span><span style="color: #009900;">(</span><span style="color: #0000ff;">"worldtranslate/worldtranslate.php"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;"><span style="color: #b1b100;">include</span><span style="color: #009900;">(</span><span style="color: #0000ff;">"worldtranslate/worldmenu/world-menu-lenguages.php"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #666666; font-style: italic;">// Initialize the class to work with the script World </span></span>
+<span style="vertical-align: top;"><span style="color: #000088;">$world_translate</span> <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> WorldTranslate<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><a target="_blank" href="http://www.php.net/ob_start"><span style="color: #990000;">ob_start</span></a><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">// opening buffer</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #b1b100;">require_once</span><span style="color: #009900;">(</span><span style="color: #000088;">$yii</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;">Yii<span style="color: #339933;">::</span><span style="color: #004000;">createWebApplication</span><span style="color: #009900;">(</span><span style="color: #000088;">$config</span><span style="color: #009900;">)</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">run</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #000088;">$html</span><span style="color: #339933;">=</span> <a target="_blank" href="http://www.php.net/ob_get_contents"><span style="color: #990000;">ob_get_contents</span></a><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">// receive buffer</span></span>
+<span style="vertical-align: top;"><a target="_blank" href="http://www.php.net/ob_end_clean"><span style="color: #990000;">ob_end_clean</span></a><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">// clear buffer</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #666666; font-style: italic;">// Initialize method for the translation</span></span>
+<span style="vertical-align: top;"><span style="color: #000088;">$html</span> <span style="color: #339933;">=</span> <span style="color: #000088;">$world_translate</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">get_world_translate</span><span style="color: #009900;">(</span><span style="color: #000088;">$html</span><span style="color: #339933;">,</span><span style="color: #0000ff;">"en_to_de"</span><span style="color: #339933;">,</span><span style="color: #0000ff;">"en"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><a target="_blank" href="http://www.php.net/echo"><span style="color: #990000;">echo</span></a> <span style="color: #000088;">$html</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">// output html in German</span></span></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+    <div id="frag_find_attr">
+      <div class="code">
+
+      </div>
+    </div>
+    <div id="frag_find_chain">
+      <div class="code">
+<div class="rj_insertcode">
+<div class="rj_insertcode_php">
+<div class="php" style="border-collapse: collapse; width: 100%; background: none repeat scroll 0% 0% #f9f9f9;">
+<pre style="margin: 0pt; background: none repeat scroll 0% 0% transparent; vertical-align: top; padding: 5px 4px; font-size: 12px; line-height: 16px;"><span style="vertical-align: top;"><span style="color: #666666; font-style: italic;">// Initialize the class to work with the script World </span></span>
+<span style="vertical-align: top;"><span style="color: #000088;">$world_translate</span> <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> WorldTranslate<span style="color: #009900;">(</span><a target="_blank" href="http://www.php.net/array"><span style="color: #990000;">array</span></a><span style="color: #009900;">(</span></span>
+<span style="vertical-align: top;">    <span style="color: #0000ff;">"basic_languages"</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">"en"</span><span style="color: #339933;">,</span></span>
+<span style="vertical-align: top;">    <span style="color: #0000ff;">"notranslate"</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">""</span><span style="color: #339933;">,</span></span>
+<span style="vertical-align: top;">    <span style="color: #0000ff;">"using_ip"</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">"not_define"</span><span style="color: #339933;">,</span></span>
+<span style="vertical-align: top;">    <span style="color: #0000ff;">"ajax_requests"</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">""</span><span style="color: #339933;">,</span></span>
+<span style="vertical-align: top;">    <span style="color: #0000ff;">"detect_language"</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">""</span></span>
+<span style="vertical-align: top;"><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #666666; font-style: italic;">// basic_languages - This language on where written the original content. </span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #666666; font-style: italic;">// notranslate - This html blocks that do not need to translate. Indicate need id, class or just element.</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #666666; font-style: italic;">// Example</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #000088;">$world_translate</span> <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> WorldTranslate<span style="color: #009900;">(</span><a target="_blank" href="http://www.php.net/array"><span style="color: #990000;">array</span></a><span style="color: #009900;">(</span></span>
+<span style="vertical-align: top;">    <span style="color: #0000ff;">"basic_languages"</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">"en"</span><span style="color: #339933;">,</span></span>
+<span style="vertical-align: top;">    <span style="color: #0000ff;">"notranslate"</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">"#one,.two,span"</span><span style="color: #339933;">,</span></span>
+<span style="vertical-align: top;">    <span style="color: #0000ff;">"using_ip"</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">"not_define"</span><span style="color: #339933;">,</span></span>
+<span style="vertical-align: top;">    <span style="color: #0000ff;">"ajax_requests"</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">""</span><span style="color: #339933;">,</span></span>
+<span style="vertical-align: top;">    <span style="color: #0000ff;">"detect_language"</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">""</span></span>
+<span style="vertical-align: top;"><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #000088;">$html</span><span style="color: #339933;">=</span><span style="color: #0000ff;">'</span>
+<span style="vertical-align: top;">    &lt;div id="one"&gt;This is just an example one&lt;/div&gt;</span>
+<span style="vertical-align: top;">    &lt;span&gt;This is just an example two&lt;/span&gt;</span>
+<span style="vertical-align: top;">        &lt;b&gt;Only this will be translated.&lt;/b&gt;</span>
+<span style="vertical-align: top;">    &lt;p class="two"&gt;This is just an example three&lt;/p&gt;</span>
+<span style="vertical-align: top;">'</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #000088;">$html</span> <span style="color: #339933;">=</span> <span style="color: #000088;">$world_translate</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">get_world_translate</span><span style="color: #009900;">(</span><span style="color: #000088;">$html</span><span style="color: #339933;">,</span><span style="color: #0000ff;">"en_to_de"</span><span style="color: #339933;">,</span><span style="color: #0000ff;">"en"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><a target="_blank" href="http://www.php.net/echo"><span style="color: #990000;">echo</span></a> <span style="color: #000088;">$html</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">/* </span>
+<span style="vertical-align: top;">    &lt;div id="one"&gt;This is just one string&lt;/div&gt;</span>
+<span style="vertical-align: top;">    &lt;span&gt;This is just two string&lt;/span&gt;&lt;br /&gt;</span>
+<span style="vertical-align: top;">        &lt;b&gt;Dieser String wird übersetzt werden.&lt;/b&gt;</span>
+<span style="vertical-align: top;">    &lt;div class="two"&gt;This is just three string&lt;/div&gt;</span>
+<span style="vertical-align: top;">*/</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #666666; font-style: italic;">/* using_ip - Allows you to automatically determine the user's language and show him the page in his language. Can contain one of three options.</span>
+<span style="vertical-align: top;">    1. not_define - language is not determined</span>
+<span style="vertical-align: top;">    2. identify_ip - define the language using the ip Users</span>
+<span style="vertical-align: top;">    3. determine_browser - define the language using the user's settings browser </span>
+<span style="vertical-align: top;">*/</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #666666; font-style: italic;">// ajax_requests - If you want something to pages with specific url is not translated, simply specify the type of some unique information from the url. </span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #666666; font-style: italic;">// Example</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #666666; font-style: italic;">// http://sitetranslate/demos/blog/index.php/site/captcha?refresh=1&amp;_=1272392750272 - I want to when you request this page translator does not work. To do this, I will write in the settings.</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #000088;">$world_translate</span> <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> WorldTranslate<span style="color: #009900;">(</span><a target="_blank" href="http://www.php.net/array"><span style="color: #990000;">array</span></a><span style="color: #009900;">(</span></span>
+<span style="vertical-align: top;">    <span style="color: #0000ff;">"basic_languages"</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">""</span><span style="color: #339933;">,</span></span>
+<span style="vertical-align: top;">    <span style="color: #0000ff;">"notranslate"</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">""</span><span style="color: #339933;">,</span></span>
+<span style="vertical-align: top;">    <span style="color: #0000ff;">"using_ip"</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">"not_define"</span><span style="color: #339933;">,</span></span>
+<span style="vertical-align: top;">    <span style="color: #0000ff;">"url_not_translate"</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">"example, captcha"</span><span style="color: #339933;">,</span></span>
+<span style="vertical-align: top;">    <span style="color: #0000ff;">"detect_language"</span><span style="color: #339933;">=&gt;</span>false</span>
+<span style="vertical-align: top;"><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #666666; font-style: italic;">// detect_language - determine the source language is automatically or not?</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #000088;">$world_translate</span> <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> WorldTranslate<span style="color: #009900;">(</span><a target="_blank" href="http://www.php.net/array"><span style="color: #990000;">array</span></a><span style="color: #009900;">(</span></span>
+<span style="vertical-align: top;">    <span style="color: #0000ff;">"basic_languages"</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">"en"</span><span style="color: #339933;">,</span></span>
+<span style="vertical-align: top;">    <span style="color: #0000ff;">"notranslate"</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">""</span><span style="color: #339933;">,</span></span>
+<span style="vertical-align: top;">    <span style="color: #0000ff;">"using_ip"</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">"not_define"</span><span style="color: #339933;">,</span></span>
+<span style="vertical-align: top;">    <span style="color: #0000ff;">"url_not_translate"</span><span style="color: #339933;">=&gt;</span><span style="color: #0000ff;">""</span><span style="color: #339933;">,</span></span>
+<span style="vertical-align: top;">    <span style="color: #0000ff;">"detect_language"</span><span style="color: #339933;">=&gt;</span>true</span>
+<span style="vertical-align: top;"><span style="color: #009900;">)</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #000088;">$html</span><span style="color: #339933;">=</span><span style="color: #0000ff;">"</span>
+<span style="vertical-align: top;">    &lt;div id='one'&gt;Hello world!&lt;/div&gt;</span>
+<span style="vertical-align: top;">    &lt;div id='one'&gt;Hallo Welt!&lt;/div&gt;</span>
+<span style="vertical-align: top;">    &lt;div id='one'&gt;Bonjour tout le monde!&lt;/div&gt;</span>
+<span style="vertical-align: top;">    &lt;div id='one'&gt;世界您好！&lt;/div&gt;</span>
+<span style="vertical-align: top;">"</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #000088;">$html</span> <span style="color: #339933;">=</span> <span style="color: #000088;">$world_translate</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">get_world_translate</span><span style="color: #009900;">(</span><span style="color: #000088;">$html</span><span style="color: #339933;">,</span><span style="color: #0000ff;">"en"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><a target="_blank" href="http://www.php.net/echo"><span style="color: #990000;">echo</span></a> <span style="color: #000088;">$html</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">/* </span>
+<span style="vertical-align: top;">    &lt;div id='one'&gt;Hello world!&lt;/div&gt;</span>
+<span style="vertical-align: top;">    &lt;div id='one'&gt;Hello world!&lt;/div&gt;</span>
+<span style="vertical-align: top;">    &lt;div id='one'&gt;Hello world!&lt;/div&gt;</span>
+<span style="vertical-align: top;">    &lt;div id='one'&gt;Hello world!&lt;/div&gt;</span>
+<span style="vertical-align: top;">*/</span></span></pre>
+</div>
+</div>
+</div>
+<p> </p>      </div>
+    </div>
+    <div id="frag_find_textcomment">
+      <div class="code">
+            
+      </div>
+    </div>
+    <div id="frag_find_nested">
+      <div class="code">
+<div class="rj_insertcode">
+<div class="rj_insertcode_php">
+<div class="php" style="border-collapse: collapse; width: 100%; background: none repeat scroll 0% 0% #f9f9f9;">
+<pre style="margin: 0pt; background: none repeat scroll 0% 0% transparent; vertical-align: top; padding: 5px 4px; font-size: 12px; line-height: 16px;"><span style="vertical-align: top;">get_world_translate<span style="color: #009900;">(</span><span style="color: #000088;">$html</span><span style="color: #339933;">,</span><span style="color: #000088;">$lang</span><span style="color: #009900;">)</span> <span style="color: #339933;">-</span> this method <span style="color: #b1b100;">for</span> get translate</span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #666666; font-style: italic;">// $html - html content or array </span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #666666; font-style: italic;">// Example </span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #000088;">$world_translate</span> <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> WorldTranslate<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #000088;">$html</span><span style="color: #339933;">=</span><span style="color: #0000ff;">"&lt;div id='one'&gt;Hello world!&lt;/div&gt;"</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #000088;">$html</span> <span style="color: #339933;">=</span> <span style="color: #000088;">$world_translate</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">get_world_translate</span><span style="color: #009900;">(</span><span style="color: #000088;">$html</span><span style="color: #339933;">,</span><span style="color: #0000ff;">"fr"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><a target="_blank" href="http://www.php.net/echo"><span style="color: #990000;">echo</span></a> <span style="color: #000088;">$html</span><span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">/* &lt;div id='one'&gt;Bonjour tout le monde!&lt;/div&gt; */</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #666666; font-style: italic;">// Example</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #000088;">$world_translate</span> <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> WorldTranslate<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #000088;">$html</span><span style="color: #339933;">=</span><a target="_blank" href="http://www.php.net/array"><span style="color: #990000;">array</span></a><span style="color: #009900;">(</span><span style="color: #0000ff;">"&lt;div id='one'&gt;Hello world!&lt;/div&gt;"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #000088;">$html</span> <span style="color: #339933;">=</span> <span style="color: #000088;">$world_translate</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">get_world_translate</span><span style="color: #009900;">(</span><span style="color: #000088;">$html</span><span style="color: #339933;">,</span><span style="color: #0000ff;">"fr"</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><a target="_blank" href="http://www.php.net/print_r"><span style="color: #990000;">print_r</span></a><span style="color: #009900;">(</span><span style="color: #000088;">$html</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span> </span>
+<span style="vertical-align: top;"><span style="color: #666666; font-style: italic;">/* </span>
+<span style="vertical-align: top;">   Array</span>
+<span style="vertical-align: top;">   ( </span>
+<span style="vertical-align: top;">     [0] =&gt; &lt;div id='one'&gt;Bonjour tout le monde!&lt;/div&gt;</span>
+<span style="vertical-align: top;">     [1] =&gt; </span>
+<span style="vertical-align: top;">   )</span>
+<span style="vertical-align: top;"> */</span></span>
+<span style="vertical-align: top;">&nbsp;</span>
+<span style="vertical-align: top;"><span style="color: #000088;">$lang</span> <span style="color: #339933;">-</span> target language</span></pre>
+</div>
+</div>
+</div> 
+      </div>
+    </div>
+  </div>
+  
+  
+</body>
+</html>

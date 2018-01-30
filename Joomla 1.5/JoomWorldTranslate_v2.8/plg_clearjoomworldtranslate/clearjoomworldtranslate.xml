@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="content">
+<name>Clearjoomworldtranslate</name>
+<creationDate>4.11.2009</creationDate>
+<author>ageent</author>
+<authorEmail>ageent.ua@gmail.com</authorEmail>
+<authorUrl>http://www.ageent.ru</authorUrl>
+<license>GNU/GPL</license>
+<version>2.0</version>
+<files>
+   <filename plugin="clearjoomworldtranslate">clearjoomworldtranslate.php</filename>
+</files>
+</install>

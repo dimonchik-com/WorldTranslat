@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5.0" type="module">
+	<name>World Cache Cleaner</name>
+    <author>Dima Kuprijanov</author>
+    <creationDate>September 2008</creationDate>
+    <authorEmail>ageent.ua@gmail.com</authorEmail>
+    <authorUrl>www.ageent.ru</authorUrl>
+    <license>GNU/GPL http://www.gnu.org/copyleft/gpl.html</license>
+    <description>JoomWorldTtranslate this plagin for automatic translation of the entire site.</description>
+	<files>
+		<filename module="mod_cachecleanerpro">mod_cachecleanerpro.php</filename>
+	</files>
+    <params>
+        <param name="show_icon" type="radio" default="1" label="Show icon" description="Show icon (description)">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </param>
+    </params>
+</install>

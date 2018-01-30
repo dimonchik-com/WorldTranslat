@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="system">
+	<name>JoomWorldTtranslate</name>
+	<author>Ageent</author>
+	<creationDate>September 2008</creationDate>
+	<authorEmail>ageent.ua@gmail.com</authorEmail>
+	<authorUrl>www.ageent.ru</authorUrl>
+    <license>GNU/GPL http://www.gnu.org/copyleft/gpl.html</license>
+	<description>JoomWorldTtranslate this plagin for automatic translation of the entire site.</description>
+	<files>
+		<filename plugin="joomworldtranslate">joomworldtranslate.php</filename>
+        <filename>worldtranslate/gtranlate/ChangeLog</filename>
+        <filename>worldtranslate/gtranlate/COPYING</filename>
+        <filename>worldtranslate/gtranlate/GTranslate.php</filename>
+        <filename>worldtranslate/gtranlate/languages.ini</filename>
+        <filename>worldtranslate/simplehtmldom/simple_html_dom.php</filename>
+	</files>
+</install>
